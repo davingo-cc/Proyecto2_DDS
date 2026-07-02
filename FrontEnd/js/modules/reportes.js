@@ -10,9 +10,9 @@ Integrantes:
 -La clase se encarga del funcionamiento que tiene el modulo de reportes
 */
 function mostrarResultado(titulo, datos, columnas){
-    const resultado = document.getElementById('reporte');
+    const resultado = document.getElementById('resultado-reporte');
     if (!resultado){
-        console.error('No se encontro el reporte');
+        console.error('No se encontro el contenedor de resultado-reporte');
         return;
     }/*fin del if*/
 
@@ -22,6 +22,7 @@ function mostrarResultado(titulo, datos, columnas){
         resultado.innerHTML = html;
         return;
     }/*fin del if*/
+
     if (datos.length === 0){
         html += '<p style = "color:#8B6B4D;">No hay datos disponibles</p>';
         resultado.innerHTML = html;
@@ -67,8 +68,8 @@ function mostrarResultado(titulo, datos, columnas){
     }/*fin del try*/
 }/*fin del mostrarResultado*/
 
-async function reporteCitasPorMedico(){
-    const url = API_BASE_URL + '/reportes/citas-por-medico';
+async function reportePacientesMasCitas(){
+    const url = API_BASE_URL + '/reportes/pacientes-mas-citas';
     const resultado = document.getElementById('resultado-reporte');
     if (resultado){
         resultado.innerHTML = '<p style = "color:#8B6B4D;">Cargando reporte</p>';
@@ -76,8 +77,8 @@ async function reporteCitasPorMedico(){
 
     try{
         const respuesta = await peticionAPI(url, 'GET');
-        const columnas = ['cedula_medico', 'nombre_medico', 'cantidad_citas'];
-        mostrarResultado('Citas por medico', respuesta, columnas);
+        const columnas = ['cedula', 'nombre', 'cantidad_citas'];
+        mostrarResultado('Pacientes con mas citas', respuesta, columnas);
         if (respuesta.length === 0){
             mostrarMensaje('Informacion', 'No hay citas registradas', 'advertencia');
         }/*fin del if*/
@@ -86,14 +87,14 @@ async function reporteCitasPorMedico(){
         if (error.mensaje){
             mensaje = error.mensaje;
         }/*fin del if*/
-        console.error('Error en reporteCitasPorMedico:', error);
+        console.error('Error en reportePacientesMasCitas:', error);
         mostrarMensaje('Error', mensaje, 'error');
-        mostrarResultado('Citas por medico (Error)', [], ['cedula_medico', 'nombre_medico', 'cantidad_citas']);
+        mostrarResultado('Pacientes con mas citas (Error)', [], columnas);
     }/*fin del try*/
-}/*fin del reporteCitasPorMedico*/
+}/*fin del reportePacientesMasCitas*/
 
-async function reportePacientesPorPadecimiento(){
-    const url = API_BASE_URL + '/reportes/pacientes-por-padecimiento';
+async function reportePadecimientoPorProvincia(){
+    const url = API_BASE_URL + '/reportes/padecimiento-por-provincia';
     const resultado = document.getElementById('resultado-reporte');
     if (resultado){
         resultado.innerHTML = '<p style = "color:#8B6B4D;">Cargando reporte</p>';
@@ -101,8 +102,8 @@ async function reportePacientesPorPadecimiento(){
 
     try{
         const respuesta = await peticionAPI(url, 'GET');
-        const columnas = ['id_padecimiento', 'nombre_padecimiento', 'tipo', 'cantidad_pacientes'];
-        mostrarResultado('Pacientes por padecimiento', respuesta, columnas);
+        const columnas = ['provincia', 'padecimiento', 'cantidad'];
+        mostrarResultado('Padecimiento mas frecuente por provincia', respuesta, columnas);
         if (respuesta.length === 0){
             mostrarMensaje('Informacion', 'No hay pacientes registrados', 'advertencia');
         }/*fin del if*/
@@ -111,14 +112,14 @@ async function reportePacientesPorPadecimiento(){
         if (error.mensaje){
             mensaje = error.mensaje;
         }/*fin del if*/
-        console.error('Error en reportePacientesPorPadecimiento:', error);
+        console.error('Error en reportePadecimientoPorProvincia:', error);
         mostrarMensaje('Error', mensaje, 'error');
-        mostrarResultado('Pacientes por padecimiento (Error)', [], ['id_padecimiento', 'nombre_padecimiento', 'tipo', 'cantidad_pacientes']);
+        mostrarResultado('Padecimiento mas frecuente por provincia (Error)', [], ['provincia', 'padecimiento', 'cantidad']);
     }/*fin del try*/
-}/*fin del reportePacientePorPadecimiento*/
+}/*fin del reportePadecimientoPorProvincia*/
 
-async function reportePacientesPorProvincia(){
-    const url = API_BASE_URL + '/reportes/pacientes-por-provincia';
+async function reporteEspecialidadMasDemandada(){
+    const url = API_BASE_URL + '/reportes/especialidad-mas-demandada';
     const resultado = document.getElementById('resultado-reporte');
     if (resultado){
         resultado.innerHTML = '<p style = "color:#8B6B4D;">Cargando reporte</p>';
@@ -126,35 +127,37 @@ async function reportePacientesPorProvincia(){
 
     try{
         const respuesta = await peticionAPI(url, 'GET');
-        const columnas = ['provincia', 'cantidad_pacientes'];
-        mostrarResultado('Pacientes por provincia', respuesta, columnas);
-        if (respuesta.length === 0){
-            mostrarMensaje('Informacion', 'No hay pacientes registrados', 'advertencia');
+        /*Este endpoint devuelve un solo objeto, no una lista, por lo que se envuelve en un arreglo*/
+        const datos = [respuesta];
+        const columnas = ['especialidad', 'demanda'];
+        mostrarResultado('Especialidad mas demandada', datos, columnas);
+        if (respuesta.demanda === 0){
+            mostrarMensaje('Informacion', 'No hay citas registradas', 'advertencia');
         }/*fin del if*/
     }catch (error){
         let mensaje = 'Error al obtener el reporte';
         if (error.mensaje){
             mensaje = error.mensaje;
         }/*fin del if*/
-        console.error('Error en reportePacientesPorProvincia:', error);
+        console.error('Error en reporteEspecialidadMasDemandada:', error);
         mostrarMensaje('Error', mensaje, 'error');
-        mostrarResultado('Pacientes por provincia (Error)', [], ['provincia', 'cantidad_pacientes']);
+        mostrarResultado('Especialidad mas demandada (Error)', [], ['especialidad', 'demanda']);
     }/*fin del try*/
-}/*fin del reportePacientePorPadecimiento*/
+}/*fin del reporteEspecialidadMasDemandada*/
 
 function inicializarReportes(){
-    const btnCitasMedico = document.getElementById('btn-reporte-citas-medico');
-    if (btnCitasMedico){
-        btnCitasMedico.addEventListener('click', reporteCitasPorMedico);
+    const btnPacientesCitas = document.getElementById('btn-reporte-pacientes-citas');
+    if (btnPacientesCitas){
+        btnPacientesCitas.addEventListener('click', reportePacientesMasCitas);
     }/*fin del if*/
 
-    const btnPacientesPadecimiento = document.getElementById('btn-reporte-pacientes-padecimiento');
-    if (btnPacientesPadecimiento){
-        btnPacientesPadecimiento.addEventListener('click', reportePacientesPorPadecimiento);
+    const btnPadecimientoProvincia = document.getElementById('btn-reporte-padecimiento-provincia');
+    if (btnPadecimientoProvincia){
+        btnPadecimientoProvincia.addEventListener('click', reportePadecimientoPorProvincia);
     }/*fin del if*/
 
-    const btnPacientesProvincia = document.getElementById('btn-reporte-pacientes-provincia');
-    if (btnPacientesProvincia){
-        btnPacientesProvincia.addEventListener('click', reportePacientesPorProvincia);
+    const btnEspecialidadDemandada = document.getElementById('btn-reporte-especialidad-demandada');
+    if (btnEspecialidadDemandada){
+        btnEspecialidadDemandada.addEventListener('click', reporteEspecialidadMasDemandada);
     }/*fin del if*/
 }/*fin de inicializarReportes*/

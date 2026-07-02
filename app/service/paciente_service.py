@@ -5,6 +5,7 @@ David Chang
 Enzo Bejarano
 Windell Urroz
 """
+from app.repository.cita_medica_repository import CitaMedicaRepository
 from app.repository.paciente_repository import PacienteRepository
 from app.repository.padecimiento_repository import PadecimientoRepository
 
@@ -13,6 +14,7 @@ class PacienteService:
     def __init__(self):
         self.repo_pacientes= PacienteRepository()
         self.repo_padecimientos= PadecimientoRepository()
+        self.repo_citas = CitaMedicaRepository()
 
     def crear(self, cedula_paciente: int, nombre_paciente: str, telefono_paciente: str,
               correo_paciente: str, provincia_paciente: str, id_padecimiento: int):
@@ -63,6 +65,8 @@ class PacienteService:
 
     def eliminar(self, cedula_paciente: int):
         # Buscar por cédula hace verificaciones y lanza excepciones
+        if self.repo_citas.existe_paciente_con_cita(cedula_paciente):
+            raise ValueError('No se puede eliminar al paciente ya que ya está asociado a una cita')
         self.buscar_por_cedula(cedula_paciente)
         return self.repo_pacientes.eliminar(cedula_paciente)
     

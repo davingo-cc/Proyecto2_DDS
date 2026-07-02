@@ -12,12 +12,14 @@ repositorio.
 """
 from typing import List, Optional
 from app.entities.padecimiento import  PadecimientoORM
+from app.repository.paciente_repository import PacienteRepository
 from app.repository.padecimiento_repository import PadecimientoRepository
 
 
 class PadecimientoService:
     def __init__(self):
         self.repo = PadecimientoRepository()
+        self.repo_pacientes = PacienteRepository()
 
     def crear(
         self,
@@ -121,6 +123,15 @@ class PadecimientoService:
         return self.repo.actualizar(id_padecimiento, nombre_padecimiento, tipo, tratamiento_prolongado)
 
     def eliminar(self, id_padecimiento: int) -> PadecimientoORM:
+        """
+        Elimina una especialidad.
+        - El ID debe ser un número entero
+        - El padecimiento debe existir
+        - No puede borrar uno que ya esté asociado a un paciente
+        """
+        if self.repo_pacientes.existe_paciente_con_padecimiento(id_padecimiento):
+            raise ValueError('No puede eliminar el padecimiento ya que ya existe un paciente asociado')
+
         # buscar_por_id ya lanza ValueError si no existe
         self.buscar_por_id(id_padecimiento)
         return self.repo.eliminar(id_padecimiento)

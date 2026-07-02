@@ -63,3 +63,25 @@ class CitaMedicaRepository:
         self.db.delete(cita)
         self.db.commit()
         return cita
+
+    def existe_paciente_con_cita(self, cedula_paciente: int) -> bool:
+        """
+        Verifica si existe al menos un paciente asociado a la cita dada
+        """
+        existe = (
+            self.db.query(CitaMedicaORM)
+            .filter(CitaMedicaORM.cedula_paciente == cedula_paciente)
+            .first()
+        )
+        return existe is not None
+
+    def existe_medico_con_cita(self, cedula_medico: int) -> bool:
+        """
+        Verifica si existe al menos un medico asociado a la cita dada
+        """
+        existe = (
+            self.db.query(CitaMedicaORM)
+            .filter(CitaMedicaORM.cedula_medico == cedula_medico)
+            .first()
+        )
+        return existe is not None
