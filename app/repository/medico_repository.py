@@ -69,3 +69,14 @@ class MedicoRepository:
         self.db.commit()
         self.db.refresh(medico)
         return medico
+
+    def existe_medico_con_especialidad(self, id_especialidad: int) -> bool:
+        """
+        Verifica si existe al menos un medico asociado a la especialidad dada
+        """
+        existe = (
+            self.db.query(MedicoORM)
+            .filter(MedicoORM.id_especialidad == id_especialidad)
+            .first()
+        )
+        return existe is not None

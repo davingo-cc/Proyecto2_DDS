@@ -1,0 +1,85 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del diseño del modulo de padecimiento
+-->
+<div class = "modulo-wrapper">
+    <div class = "modulo-header">
+        <h2>Padecimientos</h2>
+    </div>
+
+    <!--Espacios de datos, y menuBar-->
+    <form class = "formulario" id = "form-padecimiento">
+        <div class = "form-grid">
+            <div class = "campo">
+                <label for = "pad-id">ID:</label>
+                <input type = "text" id = "pad-id" placeholder = "Ej: 123" />
+            </div>
+            <div class = "campo">
+                <label for = "pad-nombre">Nombre:</label>
+                <input type = "text" id = "pad-nombre" placeholder = "Ej: Asma" />
+            </div>
+            <div class = "campo">
+                <label for = "pad-tipo">Tipo:</label>
+                <select id = "pad-tipo">
+                    <option value = "">Seleccione:</option>
+                    <option value = "cronico">Cronico</option>
+                    <option value = "agudo">Agudo</option>
+                    <option value = "congenito">Congenito</option>
+                    <option value = "otro">Otro</option>
+                </select>
+            </div>
+            <div class = "campo">
+                <label for = "pad-tratamiento">Tratamiento prolongado:</label>
+                <select id = "pad-tratamiento">
+                    <option value = "no_necesita">No necesita</option>
+                    <option value = "si_necesita">Si necesita</option>
+                </select>
+            </div>
+            <div class = "campo" id = "campo-duracion" style = "display:none;">
+                <label>Duracion:</label>
+                <div style = "display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <div class = "cantidad-selector">
+                        <button type = "button" class = "btn-cantidad" id = "btn-disminuir">−</button>
+                        <input type = "number" id = "pad-cantidad" value = "1" min = "1" max = "99" readonly />
+                        <button type = "button" class = "btn-cantidad" id = "btn-aumentar">+</button>
+                    </div>
+                    <select id = "pad-unidad" class = "select-unidad">
+                        <option value = "meses">Meses</option>
+                        <option value = "anos">Años</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class = "form-acciones">
+            <button type = "submit" class = "btn-guardar">Registrar</button>
+        </div>
+    </form>
+
+    <!--Se crean los botones que representan los endpoints-->
+    <div class = "botones-endpoint">
+        <button class = "btn-endpoint" id = "btn-listar-padecimientos">Listar</button>
+        <button class = "btn-endpoint" id = "btn-buscar-id-padecimiento">Buscar por ID</button>
+        <button class = "btn-endpoint" id = "btn-buscar-tipo-padecimiento">Buscar por tipo</button>
+        <button class = "btn-endpoint" id = "btn-actualizar-padecimiento">Actualizar</button>
+        <button class = "btn-endpoint" id = "btn-eliminar-padecimiento">Eliminar</button>
+    </div>
+
+    <!--Se crean las tablas que muestran toda la info-->
+    <div class = "tabla-wrapper">
+        <table class = "tabla-datos" id = "tabla-padecimientos">
+            <thead>
+                <tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Tratamiento</th></tr>
+            </thead>
+            <tbody>
+                <tr><td colspan = "4" style = "text-align:center; color:#8B6B4D;">Cargando datos.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

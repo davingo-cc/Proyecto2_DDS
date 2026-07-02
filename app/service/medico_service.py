@@ -5,14 +5,16 @@ David Chang
 Enzo Bejarano
 Windell Urroz
 """
+from app.repository.cita_medica_repository import CitaMedicaRepository
 from app.repository.medico_repository import MedicoRepository
 from app.repository.especialidad_repository import EspecialidadRepository
 
 
 class MedicoService:
     def __init__(self):
-        self.repo_medicos= MedicoRepository()
-        self.repo_especialidads= EspecialidadRepository()
+        self.repo_medicos = MedicoRepository()
+        self.repo_especialidads = EspecialidadRepository()
+        self.repo_citas = CitaMedicaRepository()
 
     def crear(self, cedula_medico: int, nombre_medico: str, telefono_medico: str,
               correo_medico: str, provincia_medico: str, id_especialidad: int):
@@ -63,6 +65,8 @@ class MedicoService:
 
     def eliminar(self, cedula_medico: int):
         # Buscar por cédula hace verificaciones y lanza excepciones
+        if self.repo_citas.existe_medico_con_cita(cedula_medico):
+            raise ValueError('No se puede eliminar al medico ya que ya está asociado a una cita')
         self.buscar_por_cedula(cedula_medico)
         return self.repo_medicos.eliminar(cedula_medico)
 

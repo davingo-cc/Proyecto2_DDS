@@ -1,0 +1,66 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del diseño del modulo de especialidad
+-->
+<div class = "modulo-wrapper">
+    <div class = "modulo-header">
+        <h2>Especialidades</h2>
+    </div>
+
+    <!--Espacios de datos y de menuBar-->
+    <form class = "formulario" id = "form-especialidad">
+        <div class = "form-grid">
+            <div class = "campo">
+                <label for = "esp-id">ID:</label>
+                <input type = "text" id = "esp-id" placeholder = "Ej: 1" />
+            </div>
+            <div class = "campo">
+                <label for = "esp-nombre">Nombre:</label>
+                <input type = "text" id = "esp-nombre" placeholder = "Ej: Medicina General" />
+            </div>
+            <div class = "campo">
+                <label for = "esp-area">Area Medica:</label>
+                <input type = "text" id = "esp-area" placeholder = "Ej: Clinica" />
+            </div>
+            <div class = "campo">
+                <label for = "esp-tipo">Tipo de atencion:</label>
+                <select id = "esp-tipo">
+                    <option value = "">Seleccione:</option>
+                    <option value = "general">General</option>
+                    <option value = "especializada">Especializada</option>
+                </select>
+            </div>
+        </div>
+        <div class = "form-acciones">
+            <button type = "submit" class = "btn-guardar">Registrar</button>
+        </div>
+    </form>
+
+    <!--Se crean los botones que representan los endpoints-->
+    <div class = "botones-endpoint">
+        <button class = "btn-endpoint" id = "btn-listar-especialidades">Listar</button>
+        <button class = "btn-endpoint" id = "btn-buscar-id-especialidad">Buscar por ID</button>
+        <button class = "btn-endpoint" id = "btn-buscar-tipo-especialidad">Buscar por tipo atencion</button>
+        <button class = "btn-endpoint" id = "btn-actualizar-especialidad">Actualizar</button>
+        <button class = "btn-endpoint" id = "btn-eliminar-especialidad">Eliminar</button>
+    </div>
+
+    <!--Se crea la tabla que muestra toda la info-->
+    <div class = "tabla-wrapper">
+        <table class = "tabla-datos" id = "tabla-especialidades">
+            <thead>
+                <tr><th>ID</th><th>Nombre</th><th>Area Medica</th><th>Tipo Atencion</th></tr>
+            </thead>
+            <tbody>
+                <tr><td colspan = "4" style = "text-align:center; color:#8B6B4D;">Cargando datos.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

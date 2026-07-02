@@ -1,0 +1,82 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del diseño del modulo de paciente
+-->
+<div class = "modulo-wrapper">
+    <div class = "modulo-header">
+        <h2>Pacientes</h2>
+    </div>
+
+    <!--Espacios para los datos y menuBar-->
+    <form class = "formulario" id = "form-paciente">
+        <div class = "form-grid">
+            <div class = "campo">
+                <label for = "pac-cedula">Cedula:</label>
+                <input type = "text" id = "pac-cedula" placeholder = "Ej: 101230456" />
+            </div>
+            <div class = "campo">
+                <label for = "pac-nombre">Nombre:</label>
+                <input type = "text" id = "pac-nombre" placeholder = "Ej: Carlos Mendoza" />
+            </div>
+            <div class = "campo">
+                <label for = "pac-telefono">Telefono:</label>
+                <input type = "text" id = "pac-telefono" placeholder = "Ej: 8888-1234" />
+            </div>
+            <div class = "campo">
+                <label for = "pac-correo">Correo:</label>
+                <input type = "email" id = "pac-correo" placeholder = "Ej: carlos@mail.com" />
+            </div>
+            <div class = "campo">
+                <label for = "pac-provincia">Provincia:</label>
+                <select id = "pac-provincia">
+                    <option value = "">Seleccione:</option>
+                    <option value = "San Jose">San Jose</option>
+                    <option value = "Alajuela">Alajuela</option>
+                    <option value = "Cartago">Cartago</option>
+                    <option value = "Heredia">Heredia</option>
+                    <option value = "Guanacaste">Guanacaste</option>
+                    <option value = "Puntarenas">Puntarenas</option>
+                    <option value = "Limon">Limon</option>
+                </select>
+            </div>
+            <div class = "campo">
+                <label for = "pac-padecimiento">Padecimiento:</label>
+                <select id = "pac-padecimiento">
+                    <option value = "">Seleccione:</option>
+                </select>
+            </div>
+        </div>
+        <div class = "form-acciones">
+            <button type = "submit" class = "btn-guardar">Registrar</button>
+        </div>
+    </form>
+
+    <!--Se crean los botones que representan los endpoints-->
+    <div class = "botones-endpoint">
+        <button class = "btn-endpoint" id = "btn-listar-pacientes">Listar</button>
+        <button class = "btn-endpoint" id = "btn-buscar-cedula-paciente">Buscar por cedula</button>
+        <button class = "btn-endpoint" id = "btn-buscar-provincia-paciente">Buscar por provincia</button>
+        <button class = "btn-endpoint" id = "btn-buscar-padecimiento-paciente">Buscar por padecimiento</button>
+        <button class = "btn-endpoint" id = "btn-actualizar-paciente">Actualizar</button>
+        <button class = "btn-endpoint" id = "btn-eliminar-paciente">Eliminar</button>
+    </div>
+
+    <!--Se crea la tabla que muestra toda la info-->
+    <div class = "tabla-wrapper">
+        <table class = "tabla-datos" id = "tabla-pacientes">
+            <thead>
+                <tr><th>Cedula</th><th>Nombre</th><th>Telefono</th><th>Correo</th><th>Provincia</th><th>Padecimiento</th></tr>
+            </thead>
+            <tbody>
+                <tr><td colspan = "6" style = "text-align:center; color:#8B6B4D;">Cargando datos</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

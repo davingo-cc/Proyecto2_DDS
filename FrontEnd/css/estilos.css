@@ -1,0 +1,264 @@
+/*
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga de los estilos y colores que son compartidos
+*/
+
+/*Estilos de los botones, y espacios de información*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F5EDE3;
+    color: #4A3226;
+}
+
+.modulo-wrapper{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #D4C4B0;
+    margin-bottom: 20px;
+}
+
+.modulo-header{
+    border-bottom: 2px solid #D4C4B0;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.modulo-header h2{
+    font-size: 24px;
+    color: #4A3226;
+    font-weight: 700;
+}
+
+.formulario{
+    margin-bottom: 20px;
+}
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.campo label{
+    font-weight: 600;
+    font-size: 14px;
+    color: #4A3226;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+    padding: 10px 14px;
+    border: 1px solid #D4C4B0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    color: #4A3226;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+    outline: none;
+    border-color: #8B6B4D;
+    box-shadow: 0 0 0 3px rgba(139, 107, 77, 0.1);
+}
+
+.campo textarea{
+    resize: vertical;
+    min-height: 60px;
+}
+
+.form-acciones{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btn-guardar{
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5C3D2E;
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-guardar:hover{
+    background-color: #3D261A;
+}
+
+.cantidad-selector{
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #D4C4B0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.cantidad-selector .btn-cantidad{
+    background: #F5EDE3;
+    border: none;
+    padding: 6px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4A3226;
+    transition: background-color 0.2s;
+}
+
+.cantidad-selector .btn-cantidad:hover{
+    background: #E8DCCC;
+}
+
+.cantidad-selector input{
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    padding: 6px 0;
+    background-color: #FFFFFF;
+    color: #4A3226;
+    font-weight: 600;
+}
+
+.cantidad-selector input::-webkit-outer-spin-button,
+.cantidad-selector input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cantidad-selector input[type="number"]{
+    appearance: textfield;
+}
+
+.select-unidad{
+    padding: 6px 12px;
+    border: 1px solid #D4C4B0;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #4A3226;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.botones-endpoint{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #F5EDE3;
+    border-bottom: 1px solid #F5EDE3;
+}
+
+.btn-endpoint{
+    padding: 8px 18px;
+    border: 1px solid #D4C4B0;
+    background-color: #F5EDE3;
+    color: #4A3226;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.btn-endpoint:hover{
+    background-color: #E8DCCC;
+    border-color: #8B6B4D;
+}
+
+/*Diseño y estructura de las tablas*/
+.tabla-wrapper{
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.tabla-datos{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-datos thead th{
+    background-color: #5C3D2E;
+    color: #FFFFFF;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.tabla-datos tbody td{
+    padding: 10px 16px;
+    border-bottom: 1px solid #D4C4B0;
+    color: #4A3226;
+}
+
+.tabla-datos tbody tr:nth-child(even){
+    background-color: #F5EDE3;
+}
+
+.tabla-datos tbody tr:hover{
+    background-color: #E8DCCC;
+}
+
+/*Fondos y posición*/
+@media (max-width: 768px){
+    .form-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .botones-endpoint{
+        flex-direction: column;
+    }
+
+    .btn-endpoint{
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-acciones{
+        flex-direction: column;
+    }
+
+    .btn-guardar{
+        width: 100%;
+        text-align: center;
+    }
+
+    .modulo-wrapper{
+        padding: 15px;
+    }
+}

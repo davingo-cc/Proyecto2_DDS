@@ -1,0 +1,330 @@
+/*
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del estilo del index
+*/
+/*Da color y medidas al panel de acceso al sistema y al titulo*/
+.contenedor-principal{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 30px 20px;
+}
+
+.titulo-central{
+    text-align: center;
+    padding: 30px 0 30px 0;
+}
+
+.titulo-grande{
+    font-size: 56px;
+    color: #4A3226;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.titulo-grande span{
+    color: #8B6B4D;
+}
+
+.titulo-central .slogan{
+    font-size: 20px;
+    color: #8B6B4D;
+    margin-top: 12px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.acceso-modulos{
+    background-color: #FFFFFF;
+    padding: 30px 25px;
+    border-radius: 12px;
+    border: 1px solid #D4C4B0;
+    margin-top: 10px;
+}
+
+.acceso-modulos h2{
+    text-align: center;
+    color: #4A3226;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.grid-modulos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-modulo{
+    padding: 25px 18px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #D4C4B0;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #F5EDE3, #E8DCCC);
+    box-shadow: 0 2px 6px rgba(74, 50, 38, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-modulo::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(139, 107, 77, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.tarjeta-modulo:hover{
+    background: linear-gradient(145deg, #E8DCCC, #DCC8B4);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(74, 50, 38, 0.2);
+    border-color: #8B6B4D;
+}
+
+.tarjeta-modulo h3{
+    font-size: 16px;
+    color: #4A3226;
+    margin-bottom: 5px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta-modulo p{
+    font-size: 13px;
+    color: #8B6B4D;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta-modulo:nth-child(1){
+    background: linear-gradient(145deg, #F5EDE3, #E8DCCC);
+}
+
+.tarjeta-modulo:nth-child(2){
+    background: linear-gradient(145deg, #F7F0E7, #EADCCD);
+}
+
+.tarjeta-modulo:nth-child(3){
+    background: linear-gradient(145deg, #F2E9DE, #E5D5C4);
+}
+
+.tarjeta-modulo:nth-child(4){
+    background: linear-gradient(145deg, #F6EFE4, #E9DAC9);
+}
+
+.tarjeta-modulo:nth-child(5){
+    background: linear-gradient(145deg, #F4EBDF, #E7D7C5);
+}
+
+.tarjeta-modulo:nth-child(6){
+    background: linear-gradient(145deg, #F1E8DC, #E4D4C2);
+}
+
+.tarjeta-modulo:nth-child(1):hover{
+    background: linear-gradient(145deg, #E8DCCC, #DCC8B4);
+}
+
+.tarjeta-modulo:nth-child(2):hover{
+    background: linear-gradient(145deg, #EADCCD, #DECAB6);
+}
+
+.tarjeta-modulo:nth-child(3):hover{
+    background: linear-gradient(145deg, #E5D5C4, #D9C5B0);
+}
+
+.tarjeta-modulo:nth-child(4):hover{
+    background: linear-gradient(145deg, #E9DAC9, #DDC9B5);
+}
+
+.tarjeta-modulo:nth-child(5):hover{
+    background: linear-gradient(145deg, #E7D7C5, #DBC7B2);
+}
+
+.tarjeta-modulo:nth-child(6):hover{
+    background: linear-gradient(145deg, #E4D4C2, #D8C4AF);
+}
+
+/*Da estilo y color a los botones del login*/
+.boton-acceso{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.boton-acceso button{
+    padding: 12px 36px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #5C3D2E, #4A3226);
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(74, 50, 38, 0.2);
+}
+
+.boton-acceso button:hover{
+    background: linear-gradient(145deg, #4A3226, #3D261A);
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(74, 50, 38, 0.3);
+}
+
+/*Da estilo y color al footer, y las medidas de la imagen*/
+.footer{
+    background: linear-gradient(145deg, #5C3D2E, #4A3226);
+    color: #FFFFFF;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-top: 2px solid #8B6B4D;
+}
+
+.footer-contenido{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.footer-imagen{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #8B6B4D;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.footer-texto{
+    text-align: center;
+}
+
+.footer p{
+    margin: 5px 0;
+}
+
+.footer .footer-titulo{
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.footer .footer-descripcion{
+    font-size: 16px;
+    color: #E8DCCC;
+}
+
+.footer .footer-secundario{
+    color: #D4C4B0;
+    font-size: 14px;
+}
+
+.footer .footer-integrantes{
+    font-size: 13px;
+    color: #C4B4A0;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/*Fondos y posición*/
+@media (max-width: 768px){
+    .titulo-grande{
+        font-size: 38px;
+    }
+
+    .titulo-central .slogan{
+        font-size: 17px;
+    }
+
+    .grid-modulos{
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .contenedor-principal{
+        padding: 20px 15px;
+    }
+
+    .tarjeta-modulo{
+        padding: 20px 15px;
+        min-height: 90px;
+    }
+
+    .footer-contenido{
+        gap: 6px;
+    }
+
+    .footer-imagen{
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px){
+    .titulo-grande{
+        font-size: 28px;
+    }
+
+    .titulo-central .sloga{
+        font-size: 15px;
+    }
+
+    .grid-modulos{
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .boton-acceso button{
+        width: 100%;
+    }
+
+    .footer .footer-titulo{
+        font-size: 17px;
+    }
+
+    .footer .footer-descripcion{
+        font-size: 14px;
+    }
+    
+    .contenedor-principal{
+        padding: 15px 10px;
+    }
+
+    .tarjeta-modulo{
+        padding: 18px 12px;
+        min-height: 75px;
+    }
+
+    .footer-contenido{
+        gap: 5px;
+    }
+
+    .footer-imagen{
+        width: 40px;
+        height: 40px;
+    }
+}

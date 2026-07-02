@@ -68,3 +68,14 @@ class PacienteRepository:
         self.db.commit()
         self.db.refresh(paciente)
         return paciente
+
+    def existe_paciente_con_padecimiento(self, id_padecimiento: int) -> bool:
+        """
+        Verifica si existe al menos un paciente asociado a el padecimiento dado
+        """
+        existe = (
+            self.db.query(PacienteORM)
+            .filter(PacienteORM.id_padecimiento == id_padecimiento)
+            .first()
+        )
+        return existe is not None

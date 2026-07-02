@@ -1,0 +1,85 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga de la estructura del login
+-->
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+    <meta charset = "UTF-8" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0" />
+    <title>Centro Medico Aurora</title>
+    <link rel = "stylesheet" href = "css/estilos.css" />
+    <link rel = "stylesheet" href = "css/index.css" />
+</head>
+<body>
+
+    <!--Se crea el contenedor principal, junto al nombre y descripcion de la clinica-->
+    <div class = "contenedor-principal">
+        <div class = "titulo-central">
+            <h1 class = "titulo-grande">Centro Medico <span>Aurora</span></h1>
+            <p class = "slogan">Innovacion en salud, cuidado excepcional y tecnologia de vanguardia para tu bienestar integral</p>
+        </div>
+
+        <!--Se crea el contenedor de acceso al sistema-->
+        <div class = "acceso-modulos">
+            <h2>Acceso al Sistema</h2>
+            <div class = "grid-modulos">
+                <div class = "tarjeta-modulo" id = "card-padecimiento">
+                    <h3>Padecimientos</h3>
+                    <p>Gestion de diagnosticos</p>
+                </div>
+                <div class = "tarjeta-modulo" id = "card-especialidad">
+                    <h3>Especialidades</h3>
+                    <p>Areas medicas</p>
+                </div>
+                <div class = "tarjeta-modulo" id = "card-paciente">
+                    <h3>Pacientes</h3>
+                    <p>Registro de pacientes</p>
+                </div>
+                <div class = "tarjeta-modulo" id = "card-medico">
+                    <h3>Medicos</h3>
+                    <p>Personal medico</p>
+                </div>
+                <div class = "tarjeta-modulo" id = "card-citas">
+                    <h3>Citas Medicas</h3>
+                    <p>Agendamiento</p>
+                </div>
+                <div class = "tarjeta-modulo" id = "card-reportes">
+                    <h3>Reportes Medicos</h3>
+                    <p>Estadisticas</p>
+                </div>
+            </div>
+
+            <!--Se crea el boton para entrar al sistema-->
+            <div class = "boton-acceso">
+                <button id = "btn-dashboard">Ir al Dashboard Completo</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Se crea el footer-->
+    <footer class = "footer">
+        <div class = "footer-contenido">
+            <img src = "img/clinica1.png" alt = "Centro Medico Aurora" class = "footer-imagen" />
+            <div class = "footer-texto">
+                <p class = "footer-titulo">Centro Medico Aurora</p>
+                <p class = "footer-descripcion">Excelencia en Salud - Compromiso con la Vida</p>
+                <p class = "footer-secundario">Sistema de Gestion Clinica v1.0</p>
+                <p class = "footer-secundario">&copy; 2026 - Todos los derechos reservados</p>
+                <p class = "footer-integrantes">David Chang · Enzo Bejarano · Windell Urroz</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--Se hace el llamado de la cargaS-->
+    <script src = "js/index.js"></script>
+
+</body>
+</html>

@@ -10,10 +10,13 @@ Capa de lógica de negocio y validaciones.
 """
 from app.repository.especialidad_repository import EspecialidadRepository
 from app.entities.especialidad import EspecialidadORM
+from app.repository.medico_repository import MedicoRepository
+
 
 class EspecialidadService:
     def __init__(self):
         self.repo = EspecialidadRepository()
+        self.repo_medicos = MedicoRepository()
         
     def registrar_especialidad(self, id_especialidad: int, nombre_especialidad: str, area_medica: str, tipo_atencion: str) -> EspecialidadORM:
         """
@@ -77,7 +80,10 @@ class EspecialidadService:
         Elimina una especialidad.
         - El ID debe ser un número entero
         - La especialidad debe existir
+        - No puede borrar una que ya esté asociada a un médico
         """
+        if self.repo_medicos.existe_medico_con_especialidad(id_especialidad):
+            raise ValueError('No puede eliminar la especialidad ya que ya existe un médico asociado')
         # buscar_por_id ya lanza ValueError si no existe
         self.buscar_por_id(id_especialidad)
         return self.repo.eliminar(id_especialidad)

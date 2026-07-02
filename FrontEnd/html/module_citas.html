@@ -1,0 +1,81 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del diseño del modulo de citas
+-->
+<div class = "modulo-wrapper">
+    <div class = "modulo-header">
+        <h2>Citas Medicas</h2>
+    </div>
+
+    <!--Espacio para los datos y menuBar-->
+    <form class = "formulario" id = "form-cita">
+        <div class = "form-grid">
+            <div class = "campo">
+                <label for = "cita-id">ID:</label>
+                <input type = "text" id = "cita-id" placeholder = "Ej: 1" />
+            </div>
+            <div class = "campo">
+                <label for = "cita-motivo">Motivo:</label>
+                <input type = "text" id = "cita-motivo" placeholder = "Ej: Consulta general" />
+            </div>
+            <div class = "campo">
+                <label>Fecha:</label>
+                <div style = "display:flex; gap:8px; flex-wrap:wrap;">
+                    <select id = "cita-dia">
+                        <option value = "">Dia</option>
+                    </select>
+                    <select id = "cita-mes">
+                        <option value = "">Mes</option>
+                    </select>
+                    <select id = "cita-ano">
+                        <option value = "">Año</option>
+                    </select>
+                </div>
+            </div>
+            <div class = "campo">
+                <label for = "cita-paciente">Paciente:</label>
+                <select id = "cita-paciente">
+                    <option value = "">Seleccione:</option>
+                </select>
+            </div>
+            <div class = "campo">
+                <label for = "cita-medico">Medico:</label>
+                <select id = "cita-medico">
+                    <option value = "">Seleccione:</option>
+                </select>
+            </div>
+        </div>
+        <div class = "form-acciones">
+            <button type = "submit" class = "btn-guardar">Registrar</button>
+        </div>
+    </form>
+
+    <!--Se crean los botones que representan los endpoints-->
+    <div class = "botones-endpoint">
+        <button class = "btn-endpoint" id = "btn-listar-citas">Listar</button>
+        <button class = "btn-endpoint" id = "btn-buscar-id-cita">Buscar por ID</button>
+        <button class = "btn-endpoint" id = "btn-buscar-paciente-cita">Buscar por paciente</button>
+        <button class = "btn-endpoint" id ="btn-buscar-medico-cita">Buscar por medico</button>
+        <button class = "btn-endpoint" id = "btn-actualizar-cita">Actualizar</button>
+        <button class = "btn-endpoint" id = "btn-eliminar-cita">Eliminar</button>
+    </div>
+
+    <!--Se crea la tabla que muestra toda la info-->
+    <div class = "tabla-wrapper">
+        <table class = "tabla-datos" id = "tabla-citas">
+            <thead>
+                <tr><th>ID</th><th>Motivo</th><th>Fecha</th><th>Paciente</th><th>Medico</th></tr>
+            </thead>
+            <tbody>
+                <tr><td colspan = "5" style = "text-align:center; color:#8B6B4D;">Cargando datos</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

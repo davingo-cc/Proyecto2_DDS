@@ -1,0 +1,82 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del diseño del modulo de medico
+-->
+<div class = "modulo-wrapper">
+    <div class = "modulo-header">
+        <h2>Medicos</h2>
+    </div>
+
+    <!--Espacios para los datos y menuBar-->
+    <form class = "formulario" id = "form-medico">
+        <div class = "form-grid">
+            <div class = "campo">
+                <label for = "med-cedula">Cedula:</label>
+                <input type = "text" id = "med-cedula" placeholder = "Ej: 201123456" />
+            </div>
+            <div class = "campo">
+                <label for = "med-nombre">Nombre:</label>
+                <input type = "text" id = "med-nombre" placeholder = "Ej: Dr. Carlos Mora" />
+            </div>
+            <div class = "campo">
+                <label for = "med-telefono">Telefono:</label>
+                <input type = "text" id = "med-telefono" placeholder = "Ej: 2244-1122" />
+            </div>
+            <div class = "campo">
+                <label for = "med-correo">Correo:</label>
+                <input type = "email" id = "med-correo" placeholder = "Ej: carlos@clinica.com" />
+            </div>
+            <div class = "campo">
+                <label for = "med-provincia">Provincia:</label>
+                <select id = "med-provincia">
+                    <option value = "">Seleccione:</option>
+                    <option value = "San Jose">San Jose</option>
+                    <option value = "Alajuela">Alajuela</option>
+                    <option value = "Cartago">Cartago</option>
+                    <option value = "Heredia">Heredia</option>
+                    <option value = "Guanacaste">Guanacaste</option>
+                    <option value = "Puntarenas">Puntarenas</option>
+                    <option value = "Limon">Limon</option>
+                </select>
+            </div>
+            <div class = "campo">
+                <label for = "med-especialidad">Especialidad:</label>
+                <select id = "med-especialidad">
+                    <option value="">Seleccione:</option>
+                </select>
+            </div>
+        </div>
+        <div class = "form-acciones">
+            <button type = "submit" class = "btn-guardar">Registrar</button>
+        </div>
+    </form>
+
+    <!--Se crean los botones que reprensentan los endpoints-->
+    <div class = "botones-endpoint">
+        <button class = "btn-endpoint" id = "btn-listar-medicos">Listar</button>
+        <button class = "btn-endpoint" id = "btn-buscar-cedula-medico">Buscar por cedula</button>
+        <button class = "btn-endpoint" id = "btn-buscar-provincia-medico">Buscar por provincia</button>
+        <button class = "btn-endpoint" id = "btn-buscar-especialidad-medico">Buscar por especialidad</button>
+        <button class = "btn-endpoint" id = "btn-actualizar-medico">Actualizar</button>
+        <button class = "btn-endpoint" id = "btn-eliminar-medico">Eliminar</button>
+    </div>
+
+    <!--Se crea la tabla que muestra toda la info-->
+    <div class = "tabla-wrapper">
+        <table class = "tabla-datos" id = "tabla-medicos">
+            <thead>
+                <tr><th>Cedula</th><th>Nombre</th><th>Telefono</th><th>Correo</th><th>Provincia</th><th>Especialidad</th></tr>
+            </thead>
+            <tbody>
+                <tr><td colspan = "6" style = "text-align:center; color:#8B6B4D;">Cargando datos.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
