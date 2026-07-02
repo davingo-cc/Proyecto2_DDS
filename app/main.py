@@ -16,6 +16,9 @@ from app.controller.especialidad_router import router as especialidad_router
 from app.controller.padecimiento_router import router as padecimiento_router
 from app.controller.medico_router import router as medico_router
 from app.controller.paciente_router import router as paciente_router
+from app.controller.reporte_router import router as reporte_router
+from app.controller.cita_medica_router import router as cita_medica_router
+
 
 app = FastAPI(title="Centro Médico Aurora API")
 
@@ -33,6 +36,8 @@ app.include_router(especialidad_router)
 app.include_router(padecimiento_router)
 app.include_router(medico_router)
 app.include_router(paciente_router)
+app.include_router(reporte_router)
+app.include_router(cita_medica_router)
 
 if __name__ == "__main__":
     import uvicorn

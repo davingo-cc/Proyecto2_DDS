@@ -1,0 +1,204 @@
+/*
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga del estilo del dashboard
+*/
+
+/*Posiciones, fondos y estilos*/
+.dashboard-layout{
+    display: flex;
+    min-height: 100vh;
+    background-color: #F5EDE3;
+}
+
+.sidebar{
+    width: 240px;
+    background-color: #FFFFFF;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #D4C4B0;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #4A3226;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #D4C4B0;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.sidebar-btn{
+    padding: 12px 16px;
+    border: none;
+    background-color: transparent;
+    color: #4A3226;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    font-family: inherit;
+    width: 100%;
+}
+
+.sidebar-btn:hover{
+    background-color: #F5EDE3;
+}
+
+.sidebar-btn.active{
+    background-color: #5C3D2E;
+    color: #FFFFFF;
+}
+
+.sidebar-footer{
+    border-top: 1px solid #D4C4B0;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.sidebar-footer button{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #F5EDE3;
+    color: #4A3226;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.3s;
+}
+
+.sidebar-footer button:hover{
+    background-color: #E8DCCC;
+}
+
+.contenido-dashboard{
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.dashboard-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D4C4B0;
+}
+
+.dashboard-header h2{
+    font-size: 24px;
+    color: #4A3226;
+}
+
+.user-badge{
+    background-color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #4A3226;
+    border: 1px solid #D4C4B0;
+}
+
+@media (max-width: 768px){
+    .dashboard-layout{
+        flex-direction: column;
+    }
+
+    .sidebar{
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #D4C4B0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+
+    .sidebar-logo{
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .sidebar-btn{
+        padding: 8px 14px;
+        font-size: 13px;
+        width: auto;
+    }
+
+    .sidebar-footer{
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .sidebar-footer button{
+        padding: 8px 16px;
+        width: auto;
+    }
+
+    .contenido-dashboard{
+        padding: 15px;
+    }
+
+    .dashboard-header{
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px){
+    .sidebar{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .sidebar-nav{
+        flex-direction: column;
+    }
+
+    .sidebar-btn{
+        width: 100%;
+    }
+
+    .sidebar-footer button{
+        width: 100%;
+    }
+}

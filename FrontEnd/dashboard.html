@@ -1,0 +1,74 @@
+<!--
+Desarrollo de Software
+Sistema de gestión de una clínica medica
+
+Integrantes:
+-David Chang
+-Enzo Bejarano
+-Windell Urroz
+
+-La clase se encarga de la estructura del menu y del dashboard
+-->
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+    <meta charset = "UTF-8" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0" />
+    <title>Dashboard - Centro Medico Aurora</title>
+    <link rel = "stylesheet" href = "css/estilos.css" />
+    <link rel = "stylesheet" href = "css/dashboard.css" />
+</head>
+<body>
+
+    <!--Se crea el panel del menu lateral-->
+    <div class = "dashboard-layout">
+        <aside class = "sidebar">
+            <div class = "sidebar-logo">
+                <span>Modulos</span>
+            </div>
+
+            <!--Se crean los botones de cada modulo, y para volver al inicio-->
+            <nav class = "sidebar-nav">
+                <button class = "sidebar-btn active" data-modulo = "padecimiento">Padecimientos</button>
+                <button class = "sidebar-btn" data-modulo = "especialidad">Especialidades</button>
+                <button class = "sidebar-btn" data-modulo = "paciente">Pacientes</button>
+                <button class = "sidebar-btn" data-modulo = "medico">Medicos</button>
+                <button class = "sidebar-btn" data-modulo = "citas">Citas Medicas</button>
+                <button class = "sidebar-btn" data-modulo = "reportes">Reportes</button>
+            </nav>
+            <div class = "sidebar-footer">
+                <button id = "btn-volver-inicio">Volver al Inicio</button>
+            </div>
+        </aside>
+
+        <!--Se crea un pequeño panel que indica que es el administrador-->
+        <main class = "contenido-dashboard">
+            <header class = "dashboard-header">
+                <h2>Panel de Gestion</h2>
+                <div class = "user-badge">Administrador</div>
+            </header>
+
+            <section id = "vista-modulo">
+                <div class = "modulo-wrapper">
+                    <div class="modulo-header">
+                        <h2>Cargando modulo.</h2>
+                    </div>
+                    <p style = "color:#8B6B4D;">Seleccione una opcion del menu lateral:</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!--Se hacen los llamados en el order de carga-->
+    <script src = "js/api.js"></script>
+    <script src = "js/app.js"></script>
+    <script src = "js/modules/padecimiento.js"></script>
+    <script src = "js/modules/especialidad.js"></script>
+    <script src = "js/modules/paciente.js"></script>
+    <script src = "js/modules/medico.js"></script>
+    <script src = "js/modules/citas.js"></script>
+    <script src = "js/modules/reportes.js"></script>
+    <script src = "js/dashboard.js"></script>
+</body>
+</html>

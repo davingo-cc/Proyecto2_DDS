@@ -19,4 +19,8 @@ def init_db():
     from app.entities.paciente import PacienteORM
     from app.entities.medico import MedicoORM
     from app.entities.cita_medica import CitaMedicaORM
+
     Base.metadata.create_all(bind=engine)
+
+def close_db():
+    Base.metadata.drop_all(engine)
