@@ -14,5 +14,5 @@ class MedicoORM(Base):
     nombre_medico = Column(String(100), nullable=False)
     telefono_medico = Column(String(15), nullable=False)
     correo_medico = Column(String(150))
-    provincia = Column(String(10), nullable=False)
+    provincia_medico = Column(String(10), nullable=False)
     id_especialidad = Column(Integer, ForeignKey("especialidad.id_especialidad"), nullable=False)
